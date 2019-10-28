@@ -1,5 +1,5 @@
 # WBS
-####Web Based Systems 2019 [Веб Базирани Системи 2019]
+#### Web Based Systems 2019 [Веб Базирани Системи 2019]
 ***
 This repository contains all the generated files of the subject Web Based Systems 2019, FCSE, Skopje.
 For more information visit the [wiki](https://github.com/Konstantin-Bogdanoski/WBS/wiki).
