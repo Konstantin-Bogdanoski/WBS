@@ -67,8 +67,17 @@ public class Homework_01 {
         void doStuff() throws FileNotFoundException {
             BasicConfigurator.configure();
             Model model = ModelFactory.createDefaultModel();
-            InputStream is = new FileInputStream("/home/k-bogdanoski/Desktop/FCSE/КНИ 7 Семестар/Веб Базирани Системи/Вежби/Homeworks/src/main/resources/H01_Task3.ttl");
-            model.read(is, "TURTLE", RDFFormat.TURTLE.toString());
+            InputStream is = new FileInputStream("/home/k-bogdanoski/Desktop/FCSE/КНИ 7 Семестар/Веб Базирани Системи/Вежби/Homeworks/src/main/resources/H01_Task3.xml");
+            model.read(is, "RDFXML");
+            StmtIterator it = model.listStatements();
+            while (it.hasNext())
+                System.out.println(it.nextStatement());
+        }
+    }
+
+    public static class Task4 {
+        void doStuff() {
+
         }
     }
 
@@ -76,8 +85,7 @@ public class Homework_01 {
         //Task2 task2 = new Task2();
         //task2.doStuff();
 
-        Task3 task3 = new Task3();
-        //TODO: Fix ERROR: [[ Failed to determine the RDF syntax (.lang or .base required) ]]
-        task3.doStuff();
+        //Task3 task3 = new Task3();
+        //task3.doStuff();
     }
 }

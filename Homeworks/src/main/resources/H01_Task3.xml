@@ -1,0 +1,19 @@
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+        xmlns:j.0="https://www.linkedin.com/in/konstantin-bogdanoski/"
+        xmlns:j.1="http://xmlns.com/foaf/0.1/">
+    <rdf:Description>
+        <rdf:type>
+            <rdf:Description rdf:about="https://www.linkedin.com/in/konstantin-bogdanoski/">
+                <j.1:age>22</j.1:age>
+                <j.1:lastName>Bogdanoski</j.1:lastName>
+                <j.1:firstName>Konstantin</j.1:firstName>
+                <j.1:gender>male</j.1:gender>
+                <vcard:Country>North Macedonia</vcard:Country>
+                <vcard:Region>Europe</vcard:Region>
+                <vcard:FN>Konstantin</vcard:FN>
+            </rdf:Description>
+        </rdf:type>
+    </rdf:Description>
+</rdf:RDF>
