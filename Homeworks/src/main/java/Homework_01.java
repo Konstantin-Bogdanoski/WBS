@@ -150,7 +150,6 @@ public class Homework_01 {
             model.read(is, RDFFormat.TURTLE.toString(), "TURTLE");
 
             Property similarTo = new PropertyImpl("http://purl.org/net/hifm/ontology#similarTo");
-            //ResIterator iterator = model.listResourcesWithProperty(similarTo);
             AtomicReference<StmtIterator> iterator = new AtomicReference<>(model.listStatements());
 
             System.out.println("\n\n\n\n=====================================\n\n\n\n");
@@ -169,28 +168,69 @@ public class Homework_01 {
             ArrayList<Resource> salbutamolDistinct = (ArrayList<Resource>) salbutamol.stream().distinct().collect(Collectors.toList());
 
             salbutamolDistinct.forEach(x -> {
+                List<String> similarMeds = new ArrayList<>();
                 String xName = x.getProperty(RDFS.label).getString();
                 System.out.println("\n\n=====================================\nPRINTING FOR: " + xName + " URI:" + x.toString());
                 iterator.set(model.listStatements());
                 while (iterator.get().hasNext()) {
                     Statement statement = iterator.get().nextStatement();
-                    String med = statement.getSubject().getProperty(RDFS.label).getString();
-
-                    if (med.equals(xName)
-                            &&
-                            statement
-                                    .getPredicate()
-                                    .toString()
-                                    .contains("similarTo"))
-                        System.out.println("similarTo " + statement.getSubject().getProperty(RDFS.label).getObject().toString() + " URI: " + statement.getSubject().toString());
+                    //System.out.println(statement);
+                    Statement med = statement.getSubject().getProperty(similarTo);
+                    if (med != null) {
+                        if (med.getSubject().equals(x)) {
+                            String newLine = "similarTo "
+                                    + med.getObject().asResource().getProperty(RDFS.label).getString()
+                                    + " URI: " + med.getObject();
+                            if (!similarMeds.contains(newLine))
+                                similarMeds.add(newLine);
+                        }
+                    }
                 }
+                similarMeds.forEach(System.out::println);
             });
-
             System.out.println("=====================================\n\n\n\n");
+        }
+
+        void task5_25() throws FileNotFoundException {
+            BasicConfigurator.configure();
+            Model model = ModelFactory.createDefaultModel();
+
+            InputStream is = new FileInputStream("/home/k-bogdanoski/Desktop/FCSE/КНИ 7 Семестар/Веб Базирани Системи/Вежби/Homeworks/hifm-dataset.ttl");
+            model.read(is, RDFFormat.TURTLE.toString(), "TURTLE");
+
+            Property refPrice = new PropertyImpl("http://purl.org/net/hifm/ontology#refPriceWithVAT");
+            StmtIterator iterator = model.listStatements();
+            ResIterator priceIterator = model.listResourcesWithProperty(refPrice);
+
+            List<Resource> salbutamol = new ArrayList<>();
+
+            while (iterator.hasNext()) {
+                Statement statement = iterator.nextStatement();
+                if (statement.getObject().isLiteral() && statement.getLiteral().getString().contains("Salbutamol"))
+                    salbutamol.add(statement.getSubject());
+            }
+
+            ArrayList<Resource> salbutamolDistinct = (ArrayList<Resource>) salbutamol.stream().distinct().collect(Collectors.toList());
+            iterator = model.listStatements();
+
+            for (Resource resource : salbutamolDistinct) {
+                priceIterator = model.listResourcesWithProperty(refPrice);
+                while (priceIterator.hasNext()) {
+                    Resource temp = priceIterator.nextResource();
+                    String medName = resource.getProperty(RDFS.label).getString();
+                    //System.out.println(medName);
+                    if (temp.getURI().equals(resource.toString()))
+                        System.out.println(medName + " : " + temp.getProperty(refPrice).getString() + " den.");
+                }
+            }
+
+
         }
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        //For you to test out the tasks, just uncomment the specific task you wish to test
+
         //Task2 task2 = new Task2();
         //task2.doStuff();
 
@@ -200,9 +240,10 @@ public class Homework_01 {
         //Task4 task4 = new Task4();
         //task4.doStuff();
 
-        Task5 task5 = new Task5();
+        //Task5 task5 = new Task5();
         //task5.task5_22();
         //task5.task5_23();
-        task5.task5_24();
+        //task5.task5_24();
+        //task5.task5_25();
     }
 }
