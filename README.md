@@ -10,5 +10,3 @@ For more information visit the [wiki](https://github.com/Konstantin-Bogdanoski/W
 За повеќе информации посетете го [wiki](https://github.com/Konstantin-Bogdanoski/WBS/wiki)-то.
 
 >**Не е дозволено** присвојување на датотеките.
-***
-OneDrive Files (Audio, PDF Presentations, etc.): [onedrive.365.Konstantin-Bogdanoski](https://finkiukim-my.sharepoint.com/:f:/g/personal/konstantin_bogdanoski_students_finki_ukim_mk/EhFf12F1g4JFgdqh4dyamU4BWGgON97qRJZQAAHHb_Q1zA?e=ZNavq3)
