@@ -1,5 +1,5 @@
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.;
+import org.apache.jena.rdf.model.*;
 import org.apache.log4j.BasicConfigurator;
 
 import java.io.UnsupportedEncodingException;
@@ -81,15 +81,15 @@ public class Homework_04 {
                     "rdfs:label ?label. " +
                     "} ";
             Query query = QueryFactory.create(queryString);
-            try (QueryExecution queryExecution = new QueryExecutionFactory.sparqlService(SparqlEndpoint, query)) {
-                ResultSet resultSet = queryExecution.execSelect();
-                while (resultSet.hasNext()) {
-                    QuerySolution querySolution = resultSet.nextSolution();
-                    System.out.println("==============================================");
-                    System.out.println("Drug: " + querySolution.get("drug").toString());
-                    System.out.println("Label: " + querySolution.get("label").toString());
-                }
-            }
+            //try (QueryExecution queryExecution = new QueryExecutionFactory.sparqlService(SparqlEndpoint, query)) {
+            //    ResultSet resultSet = queryExecution.execSelect();
+            //    while (resultSet.hasNext()) {
+            //        QuerySolution querySolution = resultSet.nextSolution();
+            //        System.out.println("==============================================");
+            //        System.out.println("Drug: " + querySolution.get("drug").toString());
+            //        System.out.println("Label: " + querySolution.get("label").toString());
+            //    }
+            //}
         }
     }
 
