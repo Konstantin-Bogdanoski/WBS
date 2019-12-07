@@ -1,5 +1,5 @@
 <rdf:RDF
-      xml:base=”https://github.com/Konstantin-Bogdanoski/WBS/edit/master/Homeworks/src/main/java/H-05_CreatingLinkedData/konstantin-bogdanoski.ttl#”
+      xml:base=”https://raw.githubusercontent.com/Konstantin-Bogdanoski/WBS/master/Homeworks/src/main/java/H-05_CreatingLinkedData/konstantin-bogdanoski.ttl#”
       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
